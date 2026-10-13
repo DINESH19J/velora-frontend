@@ -1,0 +1,416 @@
+
+/* =========================================
+   VELORA — Modern Luxury Authentication
+   Charcoal · Ivory · Muted Champagne
+========================================= */
+
+.auth-page {
+    --velora-bg: #101215;
+    --velora-panel: rgba(18, 21, 25, 0.88);
+    --velora-border: rgba(237, 234, 225, 0.15);
+    --velora-ivory: #f2f0e9;
+    --velora-muted: #a7a8ad;
+    --velora-accent: #c6a77b;
+
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 42px clamp(20px, 7vw, 110px);
+    box-sizing: border-box;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            ellipse at 18% 75%,
+            rgba(133, 112, 88, 0.17),
+            transparent 45%
+        ),
+        linear-gradient(125deg, #171a1f, #0b0d10 70%);
+    color: var(--velora-ivory);
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+/* Cinematic automotive background */
+.auth-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(10, 12, 15, 0.12) 0%,
+            rgba(10, 12, 15, 0.22) 35%,
+            rgba(10, 12, 15, 0.76) 65%,
+            rgba(10, 12, 15, 0.88) 100%
+        ),
+        url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&q=90");
+    background-position: center, center;
+    background-size: cover;
+    transform: scale(1.015);
+}
+
+/* Soft ambient light */
+.auth-page::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(
+        0deg,
+        rgba(8, 10, 12, 0.35),
+        transparent 35%,
+        rgba(8, 10, 12, 0.12)
+    );
+}
+
+.auth-card {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    margin: 0;
+    padding: 38px;
+    box-sizing: border-box;
+    border: 1px solid var(--velora-border);
+    border-radius: 20px;
+    background: var(--velora-panel);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow:
+        0 28px 90px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    animation: velora-card-enter 0.55s ease both;
+}
+
+@keyframes velora-card-enter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 30px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #d0d0d0;
+    font-size: 13px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.auth-back:hover {
+    color: var(--velora-accent);
+}
+
+.auth-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.auth-mark {
+    display: grid;
+    place-items: center;
+    width: 43px;
+    height: 43px;
+    border: 1px solid rgba(198, 167, 123, 0.7);
+    border-radius: 12px;
+    color: var(--velora-accent);
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.auth-logo strong {
+    display: block;
+    color: var(--velora-ivory);
+    font-size: 19px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.auth-logo small {
+    display: block;
+    margin-top: 5px;
+    color: var(--velora-muted);
+    font-size: 9px;
+    letter-spacing: 2.1px;
+}
+
+.auth-eyebrow {
+    margin: 0 0 10px;
+    color: var(--velora-accent);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.3px;
+}
+
+.auth-card h1 {
+    margin: 0;
+    color: var(--velora-ivory);
+    font-size: clamp(28px, 4vw, 35px);
+    font-weight: 500;
+    letter-spacing: -1.1px;
+    line-height: 1.2;
+}
+
+.auth-subtitle {
+    margin: 12px 0 0;
+    color: var(--velora-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.auth-switch {
+    display: flex;
+    width: 100%;
+    gap: 4px;
+    margin: 26px 0;
+    padding: 4px;
+    border: 1px solid var(--velora-border);
+    border-radius: 11px;
+    background: rgba(0, 0, 0, 0.18);
+    box-sizing: border-box;
+}
+
+.auth-switch button {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 8px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    color: #bfc0c3;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.auth-switch button:hover {
+    color: var(--velora-ivory);
+}
+
+.auth-switch button.selected {
+    border-color: rgba(198, 167, 123, 0.4);
+    background: rgba(198, 167, 123, 0.13);
+    color: #e5c99e;
+}
+
+.auth-role-note {
+    margin: -10px 0 22px;
+    padding: 13px 14px;
+    border: 1px solid rgba(198, 167, 123, 0.28);
+    border-radius: 10px;
+    background: rgba(198, 167, 123, 0.07);
+    color: #e0c39a;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+}
+
+.auth-role-note p {
+    margin: 7px 0 0;
+    color: var(--velora-muted);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.6;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+    width: 100%;
+}
+
+.auth-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    width: 100%;
+    color: #e1e1e2;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.auth-form input {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: 47px;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    border: 1px solid rgba(235, 235, 235, 0.17);
+    border-radius: 9px;
+    outline: none;
+    background: rgba(4, 6, 8, 0.34);
+    color: var(--velora-ivory);
+    font: inherit;
+    font-size: 13px;
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.auth-form input::placeholder {
+    color: #777a80;
+}
+
+.auth-form input:focus {
+    border-color: rgba(198, 167, 123, 0.85);
+    background: rgba(4, 6, 8, 0.55);
+    box-shadow: 0 0 0 3px rgba(198, 167, 123, 0.09);
+}
+
+.auth-submit {
+    display: block;
+    width: 100%;
+    min-height: 49px;
+    margin-top: 3px;
+    padding: 13px 16px;
+    box-sizing: border-box;
+    border: 1px solid #d1b48b;
+    border-radius: 9px;
+    background: #c6a77b;
+    color: #171513;
+    font-size: 13px;
+    font-weight: 650;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.auth-submit:hover:not(:disabled) {
+    transform: translateY(-1px);
+    background: #d4b88f;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.auth-submit:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+.auth-message {
+    margin: 0;
+    overflow-wrap: anywhere;
+    color: #e2c59c;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.auth-register-prompt {
+    margin-top: 23px;
+    color: var(--velora-muted);
+    font-size: 12px;
+    text-align: center;
+}
+
+.auth-register-prompt p {
+    margin: 0;
+}
+
+.auth-register-prompt button {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #dfbd8e;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.auth-register-prompt button:hover {
+    text-decoration: underline;
+}
+
+.auth-footer {
+    margin: 25px 0 0;
+    padding-top: 17px;
+    border-top: 1px solid rgba(235, 235, 235, 0.09);
+    color: #85878c;
+    font-size: 10px;
+    letter-spacing: 0.3px;
+    text-align: center;
+}
+
+@media (min-width: 1000px) {
+    .auth-page {
+        padding-right: clamp(60px, 10vw, 160px);
+    }
+}
+
+@media (max-width: 700px) {
+    .auth-page {
+        justify-content: center;
+        padding: 28px 16px;
+    }
+
+    .auth-page::before {
+        background-image:
+            linear-gradient(
+                rgba(10, 12, 15, 0.68),
+                rgba(10, 12, 15, 0.83)
+            ),
+            url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=85");
+        background-position: center;
+    }
+
+    .auth-card {
+        max-width: 450px;
+        padding: 28px 23px;
+        border-radius: 16px;
+    }
+
+    .auth-back {
+        margin-bottom: 24px;
+    }
+
+    .auth-logo {
+        margin-bottom: 27px;
+    }
+}
+
+@media (max-width: 360px) {
+    .auth-card {
+        padding: 24px 17px;
+    }
+
+    .auth-switch button {
+        padding: 11px 4px;
+        font-size: 11px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .auth-card {
+        animation: none;
+    }
+
+    .auth-switch button,
+    .auth-submit,
+    .auth-form input {
+        transition: none;
+    }
+}
